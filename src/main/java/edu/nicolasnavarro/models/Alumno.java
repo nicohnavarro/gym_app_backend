@@ -3,8 +3,10 @@ import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity
+@Table(name="alumnos")
 public class Alumno {
 	@Id
 	private int id;
@@ -19,23 +21,21 @@ public class Alumno {
 	@Column
 	private int telefono;
 	@Column
-	private Date fechaNacimiento;
+	private Date fecha_nacimiento;
 	@Column
-	private int nroSocio;
-	@Column
-	private boolean esMenor;
+	private int nro_socio;
 	@Column
 	private int edad;
 	@Column
 	private int responsable_id;
 	@Column
-	private String certificadoMedico;
+	private String certificado_medico;
 	@Column
 	private String nivel;
 	@Column
 	private String categoria;
 	@Column
-	private String diasPractica;
+	private String dias_practica;
 	
 	public int getId() {
 		return id;
@@ -56,13 +56,10 @@ public class Alumno {
 		return telefono;
 	}
 	public Date getFechaNacimiento() {
-		return fechaNacimiento;
+		return fecha_nacimiento;
 	}
 	public int getNroSocio() {
-		return nroSocio;
-	}
-	public boolean isEsMenor() {
-		return esMenor;
+		return nro_socio;
 	}
 	public int getEdad() {
 		return edad;
@@ -71,7 +68,7 @@ public class Alumno {
 		return responsable_id;
 	}
 	public String getCertificadoMedico() {
-		return certificadoMedico;
+		return certificado_medico;
 	}
 	public String getNivel() {
 		return nivel;
@@ -80,7 +77,7 @@ public class Alumno {
 		return categoria;
 	}
 	public String getDiasPractica() {
-		return diasPractica;
+		return dias_practica;
 	}
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
@@ -98,13 +95,10 @@ public class Alumno {
 		this.telefono = telefono;
 	}
 	public void setFechaNacimiento(Date fechaNacimiento) {
-		this.fechaNacimiento = fechaNacimiento;
+		this.fecha_nacimiento = fechaNacimiento;
 	}
 	public void setNroSocio(int nroSocio) {
-		this.nroSocio = nroSocio;
-	}
-	public void setEsMenor(boolean esMenor) {
-		this.esMenor = esMenor;
+		this.nro_socio = nroSocio;
 	}
 	public void setEdad(int edad) {
 		this.edad = edad;
@@ -113,7 +107,7 @@ public class Alumno {
 		this.responsable_id = responsable_id;
 	}
 	public void setCertificadoMedico(String certificadoMedico) {
-		this.certificadoMedico = certificadoMedico;
+		this.certificado_medico = certificadoMedico;
 	}
 	public void setNivel(String nivel) {
 		this.nivel = nivel;
@@ -122,7 +116,7 @@ public class Alumno {
 		this.categoria = categoria;
 	}
 	public void setDiasPractica(String diasPractica) {
-		this.diasPractica = diasPractica;
+		this.dias_practica = diasPractica;
 	}
 
 }
