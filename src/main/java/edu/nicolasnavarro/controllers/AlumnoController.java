@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -11,10 +12,10 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import edu.nicolasnavarro.models.Alumno;
+import edu.nicolasnavarro.dtos.AlumnoDTO;
 import edu.nicolasnavarro.models.Response;
 import edu.nicolasnavarro.repositories.AlumnoRepository;
-
+@CrossOrigin
 @RestController
 public class AlumnoController {
 	
@@ -32,17 +33,17 @@ public class AlumnoController {
 //	 
 	
 	@GetMapping(value="getAllAlumnos")
-	public List<Alumno> getAllAlumnos(){
+	public List<AlumnoDTO> getAllAlumnos(){
 		return alumnoRepository.findAll();
 	}
 	
 	@GetMapping(value="alumno/{id}")
-	public Alumno getAlumnoById(@PathVariable int id) {
+	public AlumnoDTO getAlumnoById(@PathVariable int id) {
 		return this.alumnoRepository.findById(id).get();
 	}
 	
 	@PostMapping(value="saveAlumno")
-	public ResponseEntity<Response> saveAlumno(@RequestBody Alumno alumno){
+	public ResponseEntity<Response> saveAlumno(@RequestBody AlumnoDTO alumno){
 		try {
 			this.alumnoRepository.save(alumno);
 			this.respuesta.setMensaje("Se agrego correctamente");
@@ -57,9 +58,9 @@ public class AlumnoController {
 	}
 	
 	@PutMapping(value="modifyAlumno")
-	public ResponseEntity<Response> modifyAlumno(@RequestBody Alumno alumno){
+	public ResponseEntity<Response> modifyAlumno(@RequestBody AlumnoDTO alumno){
 		try {
-			Alumno amodificar = this.alumnoRepository.findById(alumno.getId()).get();
+			AlumnoDTO amodificar = this.alumnoRepository.findById(alumno.getId()).get();
 			amodificar.setNombre(alumno.getNombre());
 			this.alumnoRepository.save(amodificar);
 			this.respuesta.setMensaje("Se modifico correctamente");
