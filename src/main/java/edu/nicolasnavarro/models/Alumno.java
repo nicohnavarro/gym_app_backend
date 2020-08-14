@@ -4,7 +4,6 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class Alumno {
-	private int id;
 	private String nombre;
 	private String apellido;
 	private int dni;
@@ -18,12 +17,7 @@ public class Alumno {
 	private String nivel;
 	private String categoria;
 	private String dias_practica;
-	public int getId() {
-		return id;
-	}
-	public void setId(int id) {
-		this.id = id;
-	}
+
 	public String getNombre() {
 		return nombre;
 	}

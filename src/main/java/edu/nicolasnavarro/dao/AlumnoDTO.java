@@ -1,7 +1,9 @@
-package edu.nicolasnavarro.dtos;
+package edu.nicolasnavarro.dao;
 import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
@@ -9,6 +11,7 @@ import javax.persistence.Table;
 @Table(name="alumnos")
 public class AlumnoDTO {
 	@Id
+	@GeneratedValue(strategy=GenerationType.AUTO)
 	private int id;
 	@Column
 	private String nombre;

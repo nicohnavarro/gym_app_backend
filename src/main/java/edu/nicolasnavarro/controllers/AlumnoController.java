@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import edu.nicolasnavarro.dtos.AlumnoDTO;
+import edu.nicolasnavarro.dao.AlumnoDTO;
 import edu.nicolasnavarro.models.Response;
 import edu.nicolasnavarro.repositories.AlumnoRepository;
 @CrossOrigin
