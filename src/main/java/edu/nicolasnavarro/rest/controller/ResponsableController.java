@@ -83,13 +83,13 @@ public class ResponsableController {
 	}
 	
 	@DeleteMapping(value="deleteResponsable")
-	public ResponseEntity<ResponsableResponse> deleteResponsable(@RequestBody ResponsableDTO responsable){
+	public ResponseEntity<ResponsableResponse> deleteResponsable(@PathVariable int id){
 		ResponsableResponse rr=null;
 		try {
-			ResponsableDTO rborrar = this.responsableRepo.findById(responsable.getId()).get();
+			ResponsableDTO rborrar = this.responsableRepo.findById(id).get();
 			this.responsableRepo.delete(rborrar);
-			rr = new ResponsableResponse(responsable);
-			rr.setMessage("Se elimino correctamente: "+ responsable.getApellido());
+			rr = new ResponsableResponse(rborrar);
+			rr.setMessage("Se elimino correctamente: "+ rborrar.getApellido());
 			rr.setStatusCode(200);
 			return ResponseEntity.ok(rr);
 		}catch(Exception e) {
