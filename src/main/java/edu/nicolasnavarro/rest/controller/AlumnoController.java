@@ -86,14 +86,14 @@ public class AlumnoController {
 		}
 	}
 	
-	@DeleteMapping(value="deleteAlumno")
-	public ResponseEntity<AlumnoResponse> deleteAlumno(@RequestBody AlumnoDTO alumno){
+	@DeleteMapping(value="deleteAlumno/{id}")
+	public ResponseEntity<AlumnoResponse> deleteAlumno(@PathVariable int id){
 		AlumnoResponse ra=null;
 		try {
-			AlumnoDTO aborrar = this.alumnoRepository.findById(alumno.getId()).get();
+			AlumnoDTO aborrar = this.alumnoRepository.findById(id).get();
 			this.alumnoRepository.delete(aborrar);
-			ra = new AlumnoResponse(alumno);
-			ra.setMessage("Se elimino correctamente: "+ alumno.getApellido());
+			ra = new AlumnoResponse(aborrar);
+			ra.setMessage("Se elimino correctamente: "+ aborrar.getApellido());
 			ra.setStatusCode(200);
 			return ResponseEntity.ok(ra);
 		}catch(Exception e) {
