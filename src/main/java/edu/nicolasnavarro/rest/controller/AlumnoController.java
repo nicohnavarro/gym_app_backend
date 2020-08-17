@@ -73,6 +73,11 @@ public class AlumnoController {
 		try {
 			AlumnoDTO amodificar = this.alumnoRepository.findById(alumno.getId()).get();
 			amodificar.setNombre(alumno.getNombre());
+			amodificar.setCorreo(alumno.getCorreo());
+			amodificar.setTelefono(alumno.getTelefono());
+			amodificar.setNivel_id(alumno.getNivel_id());
+			amodificar.setCategoria_id(alumno.getCategoria_id());
+			amodificar.setDias_practica(alumno.getDias_practica());
 			this.alumnoRepository.save(amodificar);
 			ra = new AlumnoResponse(alumno);
 			ra.setMessage("Se modifico correctamente: "+ alumno.getApellido());
