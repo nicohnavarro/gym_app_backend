@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -38,9 +39,9 @@ public class AlumnoController {
 		AlumnoResponse ra = null;
 		try {
 			ra = new AlumnoResponse(alumnoRepository.findById(id).get());
-			ra.setMessage("Usuario Encontrado");
+			ra.setMessage("Alumno encontrado");
 			ra.setStatusCode(200);
-				return ResponseEntity.ok(ra);			
+			return ResponseEntity.ok(ra);			
 		}catch(Exception e) {
 			ra = new AlumnoResponse(null);
 			ra.setMessage(e.getMessage());
@@ -55,13 +56,12 @@ public class AlumnoController {
 		try {
 			this.alumnoRepository.save(alumno);
 			ra = new AlumnoResponse(alumno);
-			ra.setAlumno(alumno);
 			ra.setMessage("Se agrego el alumno: "+ alumno.getApellido());
 			ra.setStatusCode(200);
 			return ResponseEntity.ok(ra);
 		}catch(Exception e) {
 			ra= new AlumnoResponse(null);
-			ra.setMessage(e.getMessage());
+			ra.setMessage("No se pudo agregar: "+e.getMessage());
 			ra.setStatusCode(300);
 			return ResponseEntity.ok(ra);
 		}
@@ -82,8 +82,26 @@ public class AlumnoController {
 			ra=new AlumnoResponse(null);
 			ra.setStatusCode(300);
 			ra.setMessage("No se pudo modificar: "+e.getMessage());
+			return ResponseEntity.ok(ra);
 		}
-		return ResponseEntity.ok(ra);
+	}
+	
+	@DeleteMapping(value="deleteAlumno")
+	public ResponseEntity<AlumnoResponse> deleteAlumno(@RequestBody AlumnoDTO alumno){
+		AlumnoResponse ra=null;
+		try {
+			AlumnoDTO aborrar = this.alumnoRepository.findById(alumno.getId()).get();
+			this.alumnoRepository.delete(aborrar);
+			ra = new AlumnoResponse(alumno);
+			ra.setMessage("Se elimino correctamente: "+ alumno.getApellido());
+			ra.setStatusCode(200);
+			return ResponseEntity.ok(ra);
+		}catch(Exception e) {
+			ra=new AlumnoResponse(null);
+			ra.setStatusCode(300);
+			ra.setMessage("No se pudo eliminar: "+e.getMessage());
+			return ResponseEntity.ok(ra);
+		}
 	}
 	
 

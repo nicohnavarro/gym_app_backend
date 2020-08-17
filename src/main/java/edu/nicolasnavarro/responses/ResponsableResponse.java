@@ -1,15 +1,19 @@
 package edu.nicolasnavarro.responses;
 
-import edu.nicolasnavarro.dao.AlumnoDTO;
+import edu.nicolasnavarro.dao.ResponsableDTO;
 
-public class AlumnoResponse implements EntitiesApplication<AlumnoDTO> {
+public class ResponsableResponse implements EntitiesApplication<ResponsableDTO>{
 	
-	private AlumnoDTO alumno;
+	private ResponsableDTO responsable;
 	private String message;
 	private int statusCode;
 	
-	public AlumnoResponse(AlumnoDTO alumno) {
-		this.alumno=alumno;
+	public ResponsableResponse(ResponsableDTO responsable) {
+		this.responsable= responsable;
+	}
+	
+	public ResponsableDTO getEntity() {
+		return this.responsable;
 	}
 
 	public String getMessage() {
@@ -28,8 +32,5 @@ public class AlumnoResponse implements EntitiesApplication<AlumnoDTO> {
 		this.statusCode = statusCode;
 	}
 
-	public AlumnoDTO getEntity() {
-		return this.alumno;
-	}
-
+	
 }
