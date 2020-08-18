@@ -2,7 +2,10 @@ package edu.nicolasnavarro.models;
 import java.util.Date;
 import org.springframework.stereotype.Component;
 
+import io.swagger.annotations.ApiModel;
+
 @Component
+@ApiModel(description="Alumno Model")
 public class Alumno {
 	private String nombre;
 	private String apellido;

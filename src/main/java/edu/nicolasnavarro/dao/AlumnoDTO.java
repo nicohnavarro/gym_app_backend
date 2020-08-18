@@ -9,11 +9,16 @@ import javax.persistence.Table;
 
 import org.springframework.lang.Nullable;
 
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+
 @Entity
 @Table(name="alumnos")
+@ApiModel(description="Alumno Model")
 public class AlumnoDTO {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
+	@ApiModelProperty(notes="ID del Alumno", name="id", required = true, value="123")
 	private int id;
 	@Column
 	private String nombre;

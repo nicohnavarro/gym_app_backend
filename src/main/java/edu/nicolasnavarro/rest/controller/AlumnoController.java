@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import edu.nicolasnavarro.dao.AlumnoDTO;
@@ -20,14 +21,17 @@ import edu.nicolasnavarro.models.Alumno;
 import edu.nicolasnavarro.models.Response;
 import edu.nicolasnavarro.models.User;
 import edu.nicolasnavarro.responses.AlumnoResponse;
-
+import io.swagger.annotations.ApiOperation;
+@ApiOperation(value="/api/v1/alumno",tags ="Alumno Profile Controller")
 @CrossOrigin
 @RestController
+@RequestMapping("/api/v1/alumno")
 public class AlumnoController {
 	
 	@Autowired
 	private AlumnoDtoRepository alumnoRepository;
 	
+	@ApiOperation(value="Get All Alumnos", response=Iterable.class)
 	@GetMapping(value="getAllAlumnos")
 	public List<AlumnoDTO> getAllAlumnos(){
 		return alumnoRepository.findAll();

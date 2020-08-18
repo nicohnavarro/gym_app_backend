@@ -2,7 +2,6 @@ package edu.nicolasnavarro;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-
 //Configuramos springboot a nivel servicios
 @SpringBootApplication
 public class App 
