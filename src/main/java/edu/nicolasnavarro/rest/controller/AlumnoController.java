@@ -22,23 +22,23 @@ import edu.nicolasnavarro.models.Response;
 import edu.nicolasnavarro.models.User;
 import edu.nicolasnavarro.responses.AlumnoResponse;
 import io.swagger.annotations.ApiOperation;
-@ApiOperation(value="/api/v1/alumno",tags ="Alumno Profile Controller")
+@ApiOperation(value="/api/alumno",tags ="Alumno Profile Controller")
 @CrossOrigin
 @RestController
-@RequestMapping("/api/v1/alumno")
+@RequestMapping("/api/alumno")
 public class AlumnoController {
 	
 	@Autowired
 	private AlumnoDtoRepository alumnoRepository;
 	
 	@ApiOperation(value="Get All Alumnos", response=Iterable.class)
-	@GetMapping(value="getAllAlumnos")
+	@GetMapping(value="getAll")
 	public List<AlumnoDTO> getAllAlumnos(){
 		return alumnoRepository.findAll();
 	}
 	 
-	
-	@GetMapping(value="alumno/{id}")
+	@ApiOperation(value="Get Alumno by Id", response=ResponseEntity.class)
+	@GetMapping(value="{id}")
 	public ResponseEntity<AlumnoResponse> getAlumnoById(@PathVariable int id) {
 		AlumnoResponse ra = null;
 		try {
@@ -53,8 +53,8 @@ public class AlumnoController {
 			return ResponseEntity.ok(ra);
 		}
 	}
-	
-	@PostMapping(value="addAlumno")
+	@ApiOperation(value="Add Alumno", response=ResponseEntity.class)
+	@PostMapping(value="add")
 	public ResponseEntity<AlumnoResponse> addAlumno(@RequestBody AlumnoDTO alumno){
 		AlumnoResponse ra = null;
 		try {
@@ -70,8 +70,8 @@ public class AlumnoController {
 			return ResponseEntity.ok(ra);
 		}
 	}
-	
-	@PutMapping(value="modifyAlumno")
+	@ApiOperation(value="Update Alumno", response=ResponseEntity.class)
+	@PutMapping(value="modify")
 	public ResponseEntity<AlumnoResponse> modifyAlumno(@RequestBody AlumnoDTO alumno){
 		AlumnoResponse ra = null;
 		try {
@@ -94,8 +94,8 @@ public class AlumnoController {
 			return ResponseEntity.ok(ra);
 		}
 	}
-	
-	@DeleteMapping(value="deleteAlumno/{id}")
+	@ApiOperation(value="Delete Alumno by Id", response=ResponseEntity.class)
+	@DeleteMapping(value="delete/{id}")
 	public ResponseEntity<AlumnoResponse> deleteAlumno(@PathVariable int id){
 		AlumnoResponse ra=null;
 		try {

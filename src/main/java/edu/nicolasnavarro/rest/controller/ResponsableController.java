@@ -11,25 +11,31 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import edu.nicolasnavarro.dao.ResponsableDTO;
 import edu.nicolasnavarro.dao.repositories.ResponsableDtoRepository;
 import edu.nicolasnavarro.responses.ResponsableResponse;
+import io.swagger.annotations.ApiOperation;
 
+@ApiOperation(value="/api/responsable",tags ="Responsable Profile Controller")
 @CrossOrigin
 @RestController
+@RequestMapping("/api/responsable")
 public class ResponsableController {
 
 	@Autowired
 	private ResponsableDtoRepository responsableRepo;
 	
-	@GetMapping(value="getAllResponsables")
+	@ApiOperation(value="Get All Responsables", response=Iterable.class)
+	@GetMapping(value="getAll")
 	public List<ResponsableDTO> getAllResponsables(){
 		return responsableRepo.findAll();
 	}
 	
-	@GetMapping(value="responsable/{id}")
+	@ApiOperation(value="Get Responsable by Id", response=ResponseEntity.class)
+	@GetMapping(value="/{id}")
 	public ResponseEntity<ResponsableResponse> getResponsableById(@PathVariable int id){
 		ResponsableResponse rr = null;
 		try {
@@ -46,7 +52,8 @@ public class ResponsableController {
 		}
 	}
 	
-	@PostMapping(value="addResponsable")
+	@ApiOperation(value="Add Alumno", response=ResponseEntity.class)
+	@PostMapping(value="add")
 	public ResponseEntity<ResponsableResponse> addResponsable(@RequestBody ResponsableDTO responsable){
 		ResponsableResponse rr = null;
 		try {
@@ -63,7 +70,8 @@ public class ResponsableController {
 		}
 	}
 	
-	@PutMapping(value="modifyResponsable")
+	@ApiOperation(value="Update Alumno", response=ResponseEntity.class)
+	@PutMapping(value="modify")
 	public ResponseEntity<ResponsableResponse> modifyResponsable(@RequestBody ResponsableDTO responsable){
 		ResponsableResponse rr = null;
 		try {
@@ -82,7 +90,8 @@ public class ResponsableController {
 		}
 	}
 	
-	@DeleteMapping(value="deleteResponsable")
+	@ApiOperation(value="Delete Alumno by Id", response=ResponseEntity.class)
+	@DeleteMapping(value="delete")
 	public ResponseEntity<ResponsableResponse> deleteResponsable(@PathVariable int id){
 		ResponsableResponse rr=null;
 		try {
