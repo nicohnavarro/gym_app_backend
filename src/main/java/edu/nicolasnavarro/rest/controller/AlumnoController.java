@@ -1,5 +1,6 @@
 package edu.nicolasnavarro.rest.controller;
 
+import java.util.LinkedList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -53,6 +54,33 @@ public class AlumnoController {
 			return ResponseEntity.ok(ra);
 		}
 	}
+	
+	@ApiOperation(value="Get Alumnos by Nivel-Cat", response=Iterable.class)
+	@GetMapping(value="control/{nivel}/{cat}")
+	public List<AlumnoDTO> getAlumnosByNivel(@PathVariable int nivel,@PathVariable int cat) {
+		List<AlumnoDTO> listaAlumnos = alumnoRepository.findAll();
+		List<AlumnoDTO> listaFiltrada = new LinkedList<AlumnoDTO>();
+		try {
+			for (AlumnoDTO alumnoDTO : listaAlumnos) {
+				if(nivel==0) {
+					if(alumnoDTO.getNivel_id()==nivel && alumnoDTO.getCategoria_id()==cat) {
+						listaFiltrada.add(alumnoDTO);
+					}
+				}
+				else {
+					if(alumnoDTO.getNivel_id()==nivel) {
+						listaFiltrada.add(alumnoDTO);
+					}
+				}
+			}
+			return listaFiltrada;
+					
+		}catch(Exception e) {
+			return listaFiltrada;
+		}
+	}
+	
+	
 	@ApiOperation(value="Add Alumno", response=ResponseEntity.class)
 	@PostMapping(value="add")
 	public ResponseEntity<AlumnoResponse> addAlumno(@RequestBody AlumnoDTO alumno){
