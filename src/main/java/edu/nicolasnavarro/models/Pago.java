@@ -1,5 +1,7 @@
 package edu.nicolasnavarro.models;
 
+import java.util.Date;
+
 import javax.persistence.Column;
 
 import org.springframework.stereotype.Component;
@@ -11,27 +13,25 @@ import io.swagger.annotations.ApiModel;
 public class Pago {
 	
 	private int alumno_id;
-	private int pago;
-	private int estado;
+	private int monto;
+	private Date fecha;
 	public int getAlumno_id() {
 		return alumno_id;
 	}
 	public void setAlumno_id(int alumno_id) {
 		this.alumno_id = alumno_id;
 	}
-	public int getPago() {
-		return pago;
+	public int getMonto() {
+		return monto;
 	}
-	public void setPago(int pago) {
-		this.pago = pago;
+	public void setMonto(int monto) {
+		this.monto = monto;
 	}
-	public int getEstado() {
-		return estado;
+	public Date getFecha() {
+		return fecha;
 	}
-	public void setEstado(int estado) {
-		this.estado = estado;
+	public void setFecha(Date fecha) {
+		this.fecha = fecha;
 	}
 	
-	
-
 }

@@ -1,5 +1,7 @@
 package edu.nicolasnavarro.dao;
 
+import java.util.Date;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -16,17 +18,17 @@ import io.swagger.annotations.ApiModelProperty;
 public class PagoDTO {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
-	@ApiModelProperty(notes="ID del Pago", name="id", required = true, value="123")
+	@ApiModelProperty(notes="ID del Pago", name="idPago", required = true, value="123")
 	private int id;
 	
 	@Column
 	private int alumno_id;
 	
 	@Column
-	private int pago;
+	private int monto;
 
 	@Column
-	private int estado;
+	private Date fecha;
 
 	public int getId() {
 		return id;
@@ -44,22 +46,22 @@ public class PagoDTO {
 		this.alumno_id = alumno_id;
 	}
 
-	public int getPago() {
-		return pago;
+	public int getMonto() {
+		return monto;
 	}
 
-	public void setPago(int pago) {
-		this.pago = pago;
+	public void setMonto(int monto) {
+		this.monto = monto;
 	}
 
-	public int getEstado() {
-		return estado;
+	public Date getFecha() {
+		return fecha;
 	}
 
-	public void setEstado(int estado) {
-		this.estado = estado;
+	public void setFecha(Date fecha) {
+		this.fecha = fecha;
 	}
-	
-	
+
+
 	
 }
