@@ -15,7 +15,7 @@ public class UserDTO {
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private int id;
 	@Column
-	private String usuario;
+	private String correo;
 	@Column
 	private String clave;
 	
@@ -25,11 +25,11 @@ public class UserDTO {
 	public void setId(int id) {
 		this.id = id;
 	}
-	public String getUsuario() {
-		return usuario;
+	public String getCorreo() {
+		return correo;
 	}
-	public void setUsuario(String usuario) {
-		this.usuario = usuario;
+	public void setUsuario(String correo) {
+		this.correo = correo;
 	}
 	public String getClave() {
 		return clave;

@@ -34,16 +34,16 @@ public class UserController {
 
 			List<UserDTO> lista = this.userRepository.findAll();
 			for (UserDTO item : lista) {
-				if (item.getUsuario().equals(user.getUsuario()) && item.getClave().equals(user.getClave())) {
+				if (item.getCorreo().equals(user.getCorreo()) && item.getClave().equals(user.getClave())) {
 					u = new UserResponse(item);
-					u.setMessage("Ingreso Correcto " + item.getUsuario());
+					u.setMessage("Ingreso Correcto " + item.getCorreo());
 					u.setStatusCode(200);
 				}
 			}
 			return ResponseEntity.ok(u);
 		} catch (Exception e) {
 			u = new UserResponse(null);
-			u.setMessage("Acceso incorrecto " + user.getUsuario());
+			u.setMessage("Acceso incorrecto " + user.getCorreo());
 			u.setStatusCode(300);
 			return ResponseEntity.ok(u);
 		}
