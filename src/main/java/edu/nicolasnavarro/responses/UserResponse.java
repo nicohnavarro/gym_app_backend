@@ -11,44 +11,22 @@ public class UserResponse implements EntitiesApplication<UserDTO> {
 	public UserResponse(UserDTO user) {
 		this.user=user;
 	}
-	
-	
-	
-	public UserDTO getUser() {
-		return user;
-	}
-
-
-
-	public void setUser(UserDTO user) {
-		this.user = user;
-	}
-
-
 
 	public String getMessage() {
 		return message;
 	}
 
-
-
 	public void setMessage(String message) {
 		this.message = message;
 	}
-
-
 
 	public int getStatusCode() {
 		return statusCode;
 	}
 
-
-
 	public void setStatusCode(int statusCode) {
 		this.statusCode = statusCode;
 	}
-
-
 
 	public UserDTO getEntity() {
 		return this.user;
