@@ -18,7 +18,7 @@ import io.swagger.annotations.ApiModelProperty;
 public class AlumnoDTO {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
-	@ApiModelProperty(notes="ID del Alumno", name="id", required = true, value="123")
+	@ApiModelProperty(notes="ID del Alumno", name="idAlumno", required = true, value="123")
 	private int id;
 	@Column
 	private String nombre;

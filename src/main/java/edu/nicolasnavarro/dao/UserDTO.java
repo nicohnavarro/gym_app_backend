@@ -7,12 +7,15 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import io.swagger.annotations.ApiModelProperty;
+
 @Entity
 @Table(name="usuarios")
 public class UserDTO {
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
+	@ApiModelProperty(notes="ID del Usuario", name="idUsuario", required = true, value="123")
 	private int id;
 	@Column
 	private String correo;

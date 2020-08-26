@@ -7,11 +7,14 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import io.swagger.annotations.ApiModelProperty;
+
 @Entity
 @Table(name="responsables")
 public class ResponsableDTO {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
+	@ApiModelProperty(notes="ID del Responsable", name="idResponsable", required = true, value="123")
 	private int id;
 	@Column
 	private String nombre;

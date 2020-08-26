@@ -80,7 +80,6 @@ public class AlumnoController {
 		}
 	}
 	
-	
 	@ApiOperation(value="Add Alumno", response=ResponseEntity.class)
 	@PostMapping(value="add")
 	public ResponseEntity<AlumnoResponse> addAlumno(@RequestBody AlumnoDTO alumno){
@@ -98,6 +97,7 @@ public class AlumnoController {
 			return ResponseEntity.ok(ra);
 		}
 	}
+	
 	@ApiOperation(value="Update Alumno", response=ResponseEntity.class)
 	@PutMapping(value="modify")
 	public ResponseEntity<AlumnoResponse> modifyAlumno(@RequestBody AlumnoDTO alumno){
@@ -122,6 +122,7 @@ public class AlumnoController {
 			return ResponseEntity.ok(ra);
 		}
 	}
+	
 	@ApiOperation(value="Delete Alumno by Id", response=ResponseEntity.class)
 	@DeleteMapping(value="delete/{id}")
 	public ResponseEntity<AlumnoResponse> deleteAlumno(@PathVariable int id){
@@ -141,5 +142,4 @@ public class AlumnoController {
 		}
 	}
 	
-
 }
