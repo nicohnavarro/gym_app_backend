@@ -13,8 +13,16 @@ import io.swagger.annotations.ApiModel;
 public class Pago {
 	
 	private int alumno_id;
+	private int nivel_id;
 	private int monto;
 	private Date fecha;
+	
+	public int getNivel_id() {
+		return nivel_id;
+	}
+	public void setNivel_id(int nivel_id) {
+		this.nivel_id = nivel_id;
+	}
 	public int getAlumno_id() {
 		return alumno_id;
 	}

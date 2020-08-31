@@ -29,6 +29,9 @@ public class PagoDTO {
 
 	@Column
 	private Date fecha;
+	
+	@Column
+	private int nivel_id;
 
 	public int getId() {
 		return id;
@@ -44,6 +47,14 @@ public class PagoDTO {
 
 	public void setAlumno_id(int alumno_id) {
 		this.alumno_id = alumno_id;
+	}
+	
+	public int getNivel_id_id() {
+		return nivel_id;
+	}
+
+	public void setNivel_id(int nivel_id) {
+		this.nivel_id = nivel_id;
 	}
 
 	public int getMonto() {

@@ -47,6 +47,15 @@ public class AlumnoDTO {
 	private int categoria_id;
 	@Column
 	private String dias_practica;
+	@Column
+	private boolean cuota;
+	
+	public boolean isCuota() {
+		return cuota;
+	}
+	public void setCuota(boolean cuota) {
+		this.cuota = cuota;
+	}
 	public int getId() {
 		return id;
 	}

@@ -43,7 +43,7 @@ public class UserController {
 			return ResponseEntity.ok(u);
 		} catch (Exception e) {
 			u = new UserResponse(null);
-			u.setMessage("Acceso incorrecto " + user.getCorreo());
+			u.setMessage("Acceso incorrecto: " + e.getMessage());
 			u.setStatusCode(300);
 			return ResponseEntity.ok(u);
 		}

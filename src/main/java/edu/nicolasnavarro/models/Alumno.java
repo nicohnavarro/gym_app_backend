@@ -20,7 +20,15 @@ public class Alumno {
 	private String nivel;
 	private String categoria;
 	private String dias_practica;
+	private boolean cuota;
 
+	public boolean isCuota() {
+		return cuota;
+	}
+	public void setCuota(boolean cuota) {
+		this.cuota = cuota;
+	}
+	
 	public String getNombre() {
 		return nombre;
 	}
