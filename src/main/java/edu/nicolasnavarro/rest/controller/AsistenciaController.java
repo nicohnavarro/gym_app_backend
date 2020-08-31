@@ -51,6 +51,25 @@ public class AsistenciaController {
 			return listaFiltrada;
 		}
 	}
+	
+	@ApiOperation(value="Get Asistencia by nivel", response=Iterable.class)
+	@GetMapping(value="{nivel}")
+	public List<AsistenciaDTO> getAlumnosByNivel(@PathVariable int nivel) {
+		List<AsistenciaDTO> listaAsistencia = asistenciaRepository.findAll();
+		List<AsistenciaDTO> listaFiltrada = new LinkedList<AsistenciaDTO>();
+		try {
+			for (AsistenciaDTO asistenciaDTO : listaAsistencia) {
+				if(nivel==asistenciaDTO.getNivel_id()) {
+						listaFiltrada.add(asistenciaDTO);
+					}
+				}
+			return listaFiltrada;
+					
+		}catch(Exception e) {
+			return listaFiltrada;
+		}
+	}
+	
 	@ApiOperation(value="Add Asistencia", response=ResponseEntity.class)
 	@PostMapping(value="add")
 	public ResponseEntity<AsistenciaResponse> addAsistencia(@RequestBody AsistenciaDTO asistencia){
