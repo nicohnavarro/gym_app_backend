@@ -49,7 +49,7 @@ public class PagoDTO {
 		this.alumno_id = alumno_id;
 	}
 	
-	public int getNivel_id_id() {
+	public int getNivel_id() {
 		return nivel_id;
 	}
 
